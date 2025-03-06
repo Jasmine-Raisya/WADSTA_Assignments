@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Todo } from './Todo.jsx';
-import { TodoForm } from './TodoForm.jsx';
-import { v4 as uuidv4 } from 'uuid';
-import { EditTodoForm } from './EditTodoForm.jsx';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Todo } from "./Todo.jsx";
+import { TodoForm } from "./TodoForm.jsx";
+import { v4 as uuidv4 } from "uuid";
+import { EditTodoForm } from "./EditTodoForm.jsx";
+import Navbar from "./Navbar"; // ✅ Import the Navbar
 
 uuidv4();
 
@@ -17,7 +18,7 @@ export const TodoWrapper = () => {
             id: uuidv4(),
             task: toDo,
             completed: false,
-            isEditing: false
+            isEditing: false,
         }]);
     };
 
@@ -37,7 +38,6 @@ export const TodoWrapper = () => {
         ));
     };
 
-    // Fixed editTask function
     const editTask = (id, newTask) => {
         setToDos(toDos.map(todo => 
             todo.id === id ? { ...todo, task: newTask, isEditing: false } : todo
@@ -61,22 +61,24 @@ export const TodoWrapper = () => {
     };
 
     const showProfile = () => {
-        navigate('/profile');
+        navigate("/profile");
     };
 
     return (
         <div className="TodoWrapper">
+            {/* ✅ Banner with background #121212 */}
+            <h1 className="text-5xl font-extrabold text-white text-center bg-[#121212] py-4 shadow-md">
+                To-Do List
+            </h1>
+
             <button onClick={toggleCompletedFilter}>
-                {showCompleted ? 'Show All' : 'Show Completed'}
+                {showCompleted ? "Show All" : "Show Completed"}
             </button>
 
             <TodoForm addToDo={addToDo} />
-            {filteredTasks.map((todo) => (
+            {filteredTasks.map((todo) =>
                 todo.isEditing ? (
-                    <EditTodoForm
-                        editToDo={editTask}
-                        task={todo}
-                    />
+                    <EditTodoForm editToDo={editTask} task={todo} />
                 ) : (
                     <Todo
                         task={todo}
@@ -86,7 +88,7 @@ export const TodoWrapper = () => {
                         onToggle={handleToggle}
                     />
                 )
-            ))}
+            )}
         </div>
     );
 };
