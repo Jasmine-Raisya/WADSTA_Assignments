@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* To-Do List Cards */
+.todo-input-container, .todo-list-container {
+  width: 100%;
+  max-width: 400px;
+}
