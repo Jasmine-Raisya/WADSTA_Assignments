@@ -10,6 +10,10 @@ Ensure you have the following installed on your system:
 - [Git](https://git-scm.com/)
 - A Firebase account ([Sign up here](https://firebase.google.com/))
 
+### Disclaimer:
+- Make sure to configure all scripts as required by the terminal should an error occur in npm run dev
+- In some cases: need some manual configuration to the firebase/npm
+
 ---
 
 ## 1. Clone the Repository
