@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 
+
 const ProfilePage = () => {
   return (
     <div className="h-screen w-screen bg-gray-900 text-white">

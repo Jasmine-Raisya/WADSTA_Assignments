@@ -7,70 +7,38 @@
 
   color-scheme: dark;
   color: #f8f8f8;
-  background-color: #121212;
+  background-color: #181818; /* ✅ Uniform background for entire page */
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* General Layout */
+/* ✅ Ensure the background is consistent across all elements */
 body {
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100vw;
   height: 100vh;
-  background: #121212;
-  transition: all 0.3s ease-in-out;
+  background-color: #181818; /* ✅ Same background as :root */
+  color: #f8f8f8;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-/* Dynamic Layout */
+/* ✅ To-Do List Container */
 .container {
   display: flex;
+  flex-direction: column;
   gap: 20px;
-  width: 80%;
-  max-width: 900px;
-  justify-content: center;
-  transition: all 0.3s ease-in-out;
+  width: 90%;
+  max-width: 1200px;
+  align-items: center;
 }
 
-.container.has-tasks {
-  justify-content: space-between;
-}
-
-/* To-Do Input Card */
-.todo-input-container {
-  flex: 1;
-  background: #1e1e1e;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease-in-out;
-}
-
-.container.has-tasks .todo-input-container {
-  max-width: 45%;
-}
-
-/* To-Do List Card */
-.todo-list-container {
-  flex: 1;
-  background: #1e1e1e;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease-in-out;
-}
-
-.container.has-tasks .todo-list-container {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Title Animation */
+/* ✅ Title Animation */
 h1 {
   font-size: 2.8em;
   color: #ffffff;
@@ -78,6 +46,8 @@ h1 {
   text-align: center;
   position: relative;
   animation: fadeIn 1s ease-in-out;
+  background: transparent; /* ✅ Removed harsh black background */
+  padding: 20px;
 }
 
 h1::after {
@@ -96,7 +66,16 @@ h1::after {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Input and Button Styling */
+/* ✅ Input & Form Styling */
+.todo-input-container {
+  width: 100%;
+  max-width: 600px;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
 .todo-input {
   width: 100%;
   padding: 12px;
@@ -107,6 +86,7 @@ h1::after {
   color: white;
 }
 
+/* ✅ Button Styling */
 .todo-btn {
   width: 100%;
   margin-top: 10px;
@@ -130,7 +110,7 @@ h1::after {
   cursor: not-allowed;
 }
 
-/* Task Display */
+/* ✅ Task Display */
 .todo-task {
   background: #252525;
   padding: 12px;
@@ -141,6 +121,7 @@ h1::after {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.3s ease-in-out;
 }
 
 .todo-task.completed {
@@ -149,6 +130,20 @@ h1::after {
   border-left: 5px solid #888;
 }
 
+/* ✅ Task List */
+.todo-list-container {
+  width: 100%;
+  max-width: 600px;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
+}
+
+/* ✅ Task Buttons */
 .task-buttons {
   display: flex;
   gap: 10px;
